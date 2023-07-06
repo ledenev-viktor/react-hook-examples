@@ -1,0 +1,27 @@
+.component {
+    width: max-content;
+}
+.block {
+    width: 100%;
+}
+.inputWrapper {
+    position: relative;
+    overflow: hidden;
+}
+.hiddenLabel {
+    opacity: 0;
+    height: 0;
+    width: 0;
+    overflow: hidden;
+}
+.label {
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: 400;
+}
+.input {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
