@@ -17,6 +17,9 @@ import { Multisteps } from "./components/multisteps";
 import "./App.css";
 import { Steps } from "./components/multi-steps/steps";
 import { useForm, useFieldArray, FieldErrors } from "react-hook-form";
+import { Input as PureInput } from "./components/pure-input";
+import { Input } from "@alfalab/core-components-input";
+import { FormControl } from "./components/formControl";
 
 
 export type FormValues = {
@@ -57,6 +60,8 @@ function App() {
     trigger
   } = form;
 
+  const errorStyle = {fontSize:"12px",fontWeight:600,margin:0, color:"red"};
+
   const steps = [{
     name: "step_1",
     nameFields: ["username", "usern2"],
@@ -73,7 +78,7 @@ function App() {
               },
             })}
             />
-            <p style={{fontSize:"12px",fontWeight:600,margin:0, color:"red"}}>{errors.username?.message}</p>
+            <p style={errorStyle}>{errors.username?.message}</p>
           </div>
       },
       {
@@ -88,7 +93,7 @@ function App() {
                 },
               })}
             />
-            <p style={{fontSize:"12px",fontWeight:600,margin:0, color:"red"}}>{errors.usern2?.message}</p>
+            <p style={errorStyle}>{errors.usern2?.message}</p>
           </div>
       },
     ]
@@ -109,7 +114,7 @@ function App() {
                 },
               })}
             />
-            <p style={{fontSize:"12px",fontWeight:600,margin:0, color:"red"}}>{errors.username3?.message}</p>
+            <p style={errorStyle}>{errors.username3?.message}</p>
           </div>
       },
       {
@@ -124,7 +129,7 @@ function App() {
                 },
               })}
             />
-            <p style={{fontSize:"12px",fontWeight:600,margin:0, color:"red"}}>{errors.username4?.message}</p>
+            <p style={errorStyle}>{errors.username4?.message}</p>
           </div>
       },
     ]
@@ -145,7 +150,7 @@ function App() {
                 },
               })}
             />
-            <p style={{fontSize:"12px",fontWeight:600,margin:0, color:"red"}}>{errors.username5?.message}</p>
+            <p style={errorStyle}>{errors.username5?.message}</p>
           </div>
       },
       {
@@ -160,13 +165,19 @@ function App() {
                 },
               })}
             />
-            <p style={{fontSize:"12px",fontWeight:600,margin:0, color:"red"}}>{errors.username6?.message}</p>
+            <p style={errorStyle}>{errors.username6?.message}</p>
           </div>
       },
     ]
   }];
   return (
     <>
+    <div>
+      <Input label={<div style={{textAlign:"left"}}>12345</div>} />
+      <FormControl block labelView="outer" label="это сообщение" >
+        <PureInput />
+      </FormControl>
+    </div>
       <h1>Multi-steps</h1>
       {/* <Multisteps /> */}
       <Steps steps={steps} trigger={trigger} reset={reset} errors={errors} />
